@@ -26,7 +26,7 @@ public class SimulacaoController : ControllerBase
             data = DateTime.UtcNow
         };
 
-        await _hubContext.Clients.All.SendAsync("PixStatusChanged", eventoPix);
+        await _hubContext.Clients.All.SendAsync("Paid", eventoPix);
 
         return Ok("Evento enviado");
     }
