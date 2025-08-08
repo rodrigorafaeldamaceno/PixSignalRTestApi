@@ -18,6 +18,7 @@ public class SimulacaoController : ControllerBase
     [HttpPost("disparar")]
     public async Task<IActionResult> DispararPix()
     {
+        Console.WriteLine("Disparando evento Pix...");
         var eventoPix = new {
             id = Guid.NewGuid().ToString(),
             valor = 200.0,
@@ -25,7 +26,7 @@ public class SimulacaoController : ControllerBase
             data = DateTime.UtcNow
         };
 
-        await _hubContext.Clients.All.SendAsync("PagamentoRecebido", eventoPix);
+        await _hubContext.Clients.All.SendAsync("PixStatusChanged", eventoPix);
 
         return Ok("Evento enviado");
     }

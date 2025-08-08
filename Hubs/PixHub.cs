@@ -14,7 +14,7 @@ namespace PixSignalRTestApi.Hubs
                 data = DateTime.UtcNow
             };
 
-            await Clients.All.SendAsync("PagamentoRecebido", eventoPix);
+            await Clients.All.SendAsync("PixStatusChanged", eventoPix);
         }
     }
 }
